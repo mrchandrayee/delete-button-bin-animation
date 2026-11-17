@@ -1,0 +1,24 @@
+/* Readable app.css source fragment from the video */
+
+/* registered: the ENGINE interpolates it, so there is no rAF anywhere */
+@property --p {
+  syntax: '<number>';
+  inherits: true;
+}
+
+/* the level: one path, one translate */
+.gulp__fill {
+  transform: translateY(calc(46px - var(--p) * 29px));
+}
+
+/* pill = disc is ONE clip on the face AND the button, so the paint and hit target cannot disagree */
+.gulp__face, .gulp__btn {
+  clip-path: inset(0 var(--fx) round var(--rr));
+  transition: clip-path .44s var(--e-out);
+}
+
+/* the wait IS the border being DRAWN */
+.gulp__ring circle {
+  stroke-dasharray: 0 100;
+}
+@keyframes gulp-draw { to { stroke-dasharray: 92 100; } }

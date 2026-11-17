@@ -1,0 +1,22 @@
+<!-- Readable index.html source fragment from the video -->
+<span class="gulp" data-state="idle">
+  <span class="gulp__body">
+    <!-- ONE face, ONE clip: pill or disc, never both -->
+    <span class="gulp__face"></span>
+
+    <button class="gulp__btn">
+      <!-- the bin. Its interior is a clip, so a letter that falls in is SEEN inside -->
+      <svg class="gulp__icon">
+        <g class="gulp__can">
+          <clipPath class="gulp__clip"/>
+          <g class="gulp__lid">
+            <path class="gulp__fill"/>
+          </g>
+          <path class="gulp__bin"/>
+          <g class="gulp__lid"></g>
+        </g>
+      </svg>
+      <span data-label>Delete</span>
+    </button>
+  </span>
+</span>

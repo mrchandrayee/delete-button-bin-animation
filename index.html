@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09090d"><title>Delete Button — The Bin Eats The Label</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<main class="page">
+  <header class="hero"><div class="eyebrow">MICRO-INTERACTION STUDY · 042</div><h1>Delete Button</h1><p>The Bin Eats The Label</p></header>
+  <section class="demo-card">
+    <div class="demo-top"><span class="window-dots"><i></i><i></i><i></i></span><span>INTERACTIVE COMPONENT</span><span class="version">CSS · SVG · JS</span></div>
+    <div class="buttons-stage">
+      <div class="button-demo">
+        <div class="demo-label"><span class="state-dot red"></span> Destructive action <small>01 / FLUSH</small></div>
+        <button class="gulp gulp--red" data-gulp="red" aria-label="Delete item">
+          <span class="gulp__body"><span class="gulp__face"></span>
+            <span class="gulp__btn">
+              <svg class="gulp__icon" viewBox="0 0 48 48" aria-hidden="true">
+                <g class="gulp__can">
+                  <clipPath id="canClip"><path d="M14 16h20l-2 23H16z"/></clipPath>
+                  <g class="gulp__lid"><path d="M11 12h26M19 8h10"/></g>
+                  <path class="gulp__fill" d="M17 37V19h14v18z" clip-path="url(#canClip)"/>
+                  <path class="gulp__bin" d="M14 16h20l-2 23H16z"/>
+                  <path class="gulp__handle" d="M20 16v-2h8v2M21 21v13M27 21v13"/>
+                </g>
+              </svg>
+              <span class="gulp__label" data-label>Delete</span>
+              <svg class="gulp__ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/></svg>
+            </span>
+          </span>
+        </button>
+        <p class="hint">Click to delete · label falls into the bin</p>
+      </div>
+      <div class="divider"></div>
+      <div class="button-demo">
+        <div class="demo-label"><span class="state-dot dark"></span> Secondary action <small>02 / CONFIRM</small></div>
+        <button class="gulp gulp--dark" data-gulp="dark" aria-label="Delete item">
+          <span class="gulp__body"><span class="gulp__face"></span>
+            <span class="gulp__btn">
+              <svg class="gulp__icon" viewBox="0 0 48 48" aria-hidden="true">
+                <g class="gulp__can">
+                  <clipPath id="canClip2"><path d="M14 16h20l-2 23H16z"/></clipPath>
+                  <g class="gulp__lid"><path d="M11 12h26M19 8h10"/></g>
+                  <path class="gulp__fill" d="M17 37V19h14v18z" clip-path="url(#canClip2)"/>
+                  <path class="gulp__bin" d="M14 16h20l-2 23H16z"/>
+                  <path class="gulp__handle" d="M20 16v-2h8v2M21 21v13M27 21v13"/>
+                </g>
+              </svg>
+              <span class="gulp__label" data-label>Delete</span>
+              <svg class="gulp__ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/></svg>
+            </span>
+          </span>
+        </button>
+        <p class="hint">Same animation · different surface</p>
+      </div>
+    </div>
+    <div class="demo-bottom"><span><i class="live-dot"></i> READY FOR INTERACTION</span><button id="resetAll">↻ Reset both buttons</button></div>
+  </section>
+  <div class="notes"><span>ONE FACE · ONE CLIP</span><span>SVG BIN + DRAWN RING</span><span>ANIMATION-END DRIVEN</span></div>
+  <section class="code-preview">
+    <div class="code-title"><span>⌘</span> SOURCE EXTRACT · READABLE FRAGMENTS</div>
+    <div class="code-grid">
+      <article><h3><i class="html-dot"></i> index.html</h3><pre><code>&lt;span class="gulp" data-state="idle"&gt;
+  &lt;span class="gulp__body"&gt;
+    &lt;span class="gulp__face"&gt;&lt;/span&gt;
+    &lt;button class="gulp__btn"&gt;
+      &lt;svg class="gulp__icon"&gt;
+        &lt;clipPath class="gulp__clip"/&gt;
+        &lt;path class="gulp__fill"/&gt;
+        &lt;path class="gulp__bin"/&gt;
+      &lt;/svg&gt;
+      &lt;span data-label&gt;Delete&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/span&gt;
+&lt;/span&gt;</code></pre></article>
+      <article><h3><i class="css-dot"></i> app.css</h3><pre><code>@property --p {
+  syntax: '&lt;number&gt;';
+  inherits: true;
+}
+
+/* the level: one path, one translate */
+.gulp__fill {
+  transform: translateY(
+    calc(46px - var(--p) * 29px)
+  );
+}
+.gulp__face, .gulp__btn {
+  clip-path: inset(
+    0 var(--fx) round var(--rr)
+  );
+  transition: clip-path .44s var(--e-out);
+}
+.gulp__ring circle {
+  stroke-dasharray: 0 100;
+}</code></pre></article>
+      <article><h3><i class="js-dot"></i> app.js</h3><pre><code>label.addEventListener(
+  'animationend', (e) =&gt; {
+    if (e.animationName !== 'gulp-fly')
+      return;
+    landed += 1;
+    root.style.setProperty(
+      '--p', landed / chars.length
+    );
+  }
+);
+const request = remove((event));
+set('eat');
+set('full'); await sleep(...);</code></pre></article>
+    </div>
+  </section>
+  <footer>BUILT WITH HTML · CSS · VANILLA JAVASCRIPT <span>DEMO REQUEST IS SIMULATED</span></footer>
+</main>
+<div class="toast" id="toast"></div><script src="app.js"></script></body></html>

@@ -1,0 +1,17 @@
+// Readable app.js source fragment from the video
+// the level is the LETTERS, not a timer: each landing is its own
+// animationend, and --p is the count.
+label.addEventListener('animationend', (e) => {
+  if (e.animationName !== 'gulp-fly') return;
+  landed += 1;
+  root.style.setProperty('--p', landed / chars.length);
+});
+
+// the request leaves WITH the press.
+// the eat is what the button does while it waits, not a delay.
+const request = remove((event));
+set('eat');
+set('full'); await eaten;
+set('pending');
+const res = await request;
+await atLeast(MIN_TURN);
